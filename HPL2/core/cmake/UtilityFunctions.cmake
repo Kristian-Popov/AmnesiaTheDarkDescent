@@ -12,7 +12,7 @@ function(FindPrebuiltLibrary result_var libname)
     # check prebuilt directory first
     find_library(${result_var}
         NAMES ${libname}
-        PATHS ${PREBUILT_PLATFORM_ROOT}/lib ${PREBUILT_PLATFORM_ROOT}
+        PATHS ${PREBUILT_PLATFORM_ROOT}/lib ${PREBUILT_PLATFORM_ROOT}/lib64
         NO_DEFAULT_PATH)
     # Check system dir
     find_library(${result_var}

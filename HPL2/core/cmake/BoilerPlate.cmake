@@ -49,6 +49,8 @@ if(LINUX)
     set(CMAKE_BUILD_WITH_INSTALL_RPATH      TRUE)
     set(CMAKE_INSTALL_RPATH                 ${BIN_RPATH})
     set(CMAKE_INSTALL_RPATH_USE_LINK_PATH   FALSE)
+    # Temporary fix until precompiled libraries are used
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -no-pie")
 elseif(APPLE)
     set(PLATFORM_PREFIX             "macosx")
 
