@@ -1,0 +1,26 @@
+os: linux
+dist: focal
+arch: amd64
+language: cpp
+compiler: gcc
+addons:
+  apt:
+    packages:
+    - unzip
+install:
+  # Unzip prebuilt libraries
+  - pushd HPL2/
+  - unzip dependencies.zip include/* lib/linux/lib64/* sources/* -d dependencies
+  - pushd dependencies/lib/linux/lib64
+  # Huge thanks to Robert Alm Nilsson for this script
+  # https://github.com/FrictionalGames/AmnesiaTheDarkDescent/pull/2#issuecomment-697648592
+  - "for f in `file * | grep ASCII | cut -d: -f1`; do ln -fs `cut -d' ' -f2 $f` $f; done"
+  - popd
+  - popd
+
+script:
+  - pushd amnesia/src/
+  - mkdir build
+  - pushd build/
+  - cmake -DUSE_SDL2=ON -G "Unix Makefiles" ..
+  - make -j$(nproc)
