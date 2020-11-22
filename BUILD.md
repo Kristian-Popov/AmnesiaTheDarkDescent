@@ -1,6 +1,6 @@
 # Build instructions
 
-For compilation instructions, I suggest to check script for continuous integration script (TODO link). This is how to read it:
+For compilation instructions, I suggest to check [script for continuous integration script](.travis.yml). This is how to read it:
 - required packages can be found at addons/apt/packages
 - additionally you will need: g++ cmake git
 
