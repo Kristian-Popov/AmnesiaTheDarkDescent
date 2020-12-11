@@ -41,6 +41,7 @@ ENDIF()
 OPTION(USE_SDL2 "Use SDL2 instead of SDL1.2" ON)
 
 add_subdirectory(../dependencies/OALWrapper OALWrapper)
+add_subdirectory(../dependencies/newton/coreLibrary_200/projets/linux-cmake/ Newton)
 
 SET(HPL2_DEFINES
     PUBLIC $<$<BOOL:${USE_SDL2}>:USE_SDL2>
@@ -238,14 +239,13 @@ source_group("Platform" REGULAR_EXPRESSION "\\/impl\\/Platform.+")
 
 # setup libs
 
-FindPrebuiltLibrary(NEWTON_LIBRARY Newton)
 FindPrebuiltLibrary(ANGELSCRIPT_LIBRARY angelscript)
 
 find_package(GLEW REQUIRED)
 find_package(Theora REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(DevIL REQUIRED)
-mark_as_advanced(NEWTON_LIBRARY ANGELSCRIPT_LIBRARY)
+mark_as_advanced(ANGELSCRIPT_LIBRARY)
 
 # setup HPL2 compile target
 
@@ -282,7 +282,7 @@ endif()
 
 target_link_libraries(HPL2
     OALWrapper # also pulls in ogg,vorbis,SDL
-    ${NEWTON_LIBRARY}
+    NewtonCore
     ${ANGELSCRIPT_LIBRARY}
     ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY}
     ${GLEW_LIBRARIES}
