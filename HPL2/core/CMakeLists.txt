@@ -54,6 +54,7 @@ set(HPL2_INCLUDES
     PUBLIC include
     #Important that this is before dependencies so the correct OpenAL headers are used
     PRIVATE ${OALWRAPPER_INCLUDE_DIR}
+    PRIVATE ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR} ${IL_INCLUDE_DIR} ${THEORA_INCLUDE_DIR}
     PUBLIC ../dependencies/include
 )
 
@@ -239,12 +240,12 @@ source_group("Platform" REGULAR_EXPRESSION "\\/impl\\/Platform.+")
 
 FindPrebuiltLibrary(NEWTON_LIBRARY Newton)
 FindPrebuiltLibrary(ANGELSCRIPT_LIBRARY angelscript)
-FindPrebuiltLibrary(GLEW_LIBRARY GLEW)
-FindPrebuiltLibrary(THEORA_LIBRARY theora)
-FindPrebuiltLibrary(DEVIL_LIBRARY IL)
 
-find_package(OpenGL)
-mark_as_advanced(NEWTON_LIBRARY ANGELSCRIPT_LIBRARY GLEW_LIBRARY THEORA_LIBRARY DEVIL_LIBRARY)
+find_package(GLEW REQUIRED)
+find_package(Theora REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(DevIL REQUIRED)
+mark_as_advanced(NEWTON_LIBRARY ANGELSCRIPT_LIBRARY)
 
 # setup HPL2 compile target
 
@@ -284,9 +285,9 @@ target_link_libraries(HPL2
     ${NEWTON_LIBRARY}
     ${ANGELSCRIPT_LIBRARY}
     ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY}
-    ${GLEW_LIBRARY}
-    ${THEORA_LIBRARY}
-    ${DEVIL_LIBRARY}
+    ${GLEW_LIBRARIES}
+    ${THEORA_LIBRARIES}
+    ${IL_LIBRARIES}
     z
     ${PLATFORM_LIBS}
 )

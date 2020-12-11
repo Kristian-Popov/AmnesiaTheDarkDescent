@@ -5,11 +5,11 @@ language: cpp
 compiler: gcc
 addons:
   apt:
-    packages: unzip libgl1-mesa-glx libgl1-mesa-dev libglu1-mesa-dev libz-dev libasound2-dev libsdl2-dev libxft-dev
+    packages: unzip libgl1-mesa-glx libgl1-mesa-dev libglu1-mesa-dev libz-dev libasound2-dev libsdl2-dev libxft-dev libvorbis-dev libopenal-dev libogg-dev libtheora-dev libglew-dev libdevil-dev
 install:
   # Unzip prebuilt libraries
   - pushd HPL2/
-  - unzip dependencies.zip include/* lib/linux/lib64/* sources/* -d dependencies
+  - unzip dependencies.zip include/angelscript.h include/Newton.h lib/linux/lib64/libangelscript.a lib/linux/lib64/libNewton.a sources/* -d dependencies
   - pushd dependencies/lib/linux/lib64
   # Huge thanks to Robert Alm Nilsson for this script
   # https://github.com/FrictionalGames/AmnesiaTheDarkDescent/pull/2#issuecomment-697648592
