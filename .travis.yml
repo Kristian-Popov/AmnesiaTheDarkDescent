@@ -9,7 +9,7 @@ addons:
 install:
   # Unzip prebuilt libraries
   - pushd HPL2/
-  - unzip dependencies.zip include/angelscript.h include/Newton.h lib/linux/lib64/libangelscript.a lib/linux/lib64/libNewton.a sources/* -d dependencies
+  - unzip dependencies.zip include/angelscript.h lib/linux/lib64/libangelscript.a sources/* -d dependencies
   - pushd dependencies/lib/linux/lib64
   # Huge thanks to Robert Alm Nilsson for this script
   # https://github.com/FrictionalGames/AmnesiaTheDarkDescent/pull/2#issuecomment-697648592
