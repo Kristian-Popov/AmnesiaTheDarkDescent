@@ -5,7 +5,7 @@ language: cpp
 compiler: gcc
 addons:
   apt:
-    packages: unzip libgl1-mesa-glx libgl1-mesa-dev libglu1-mesa-dev libz-dev libasound2-dev libsdl2-dev libxft-dev libvorbis-dev libopenal-dev libogg-dev libtheora-dev libglew-dev libdevil-dev
+    packages: unzip libgl1-mesa-glx libgl1-mesa-dev libglu1-mesa-dev libz-dev libasound2-dev libsdl2-dev libxft-dev libvorbis-dev libopenal-dev libogg-dev libtheora-dev libglew-dev libdevil-dev libfltk1.3-dev libx11-dev libjpeg-dev
 install:
   # Unzip prebuilt libraries
   - pushd HPL2/
