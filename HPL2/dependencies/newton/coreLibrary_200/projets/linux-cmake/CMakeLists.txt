@@ -1,7 +1,7 @@
 #[[
 This file is added by Kristian Popov, not part of original distribution of Newton
 ]]
-cmake_minimum_required(VERSION 3.16) # Feel free to reduce this if needed, taken arbitrarily
+cmake_minimum_required(VERSION 3.10) # Feel free to reduce this if needed, taken arbitrarily
 project(NewtonCore)
 
 set(CORE_DIR ../../source/core)

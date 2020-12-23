@@ -45,8 +45,8 @@ namespace hpl {
 		
 		mpNewtonWorld = pWorldNewton->GetNewtonWorld();
 		mpNewtonBody = NewtonCreateBody(pWorldNewton->GetNewtonWorld(), 
-										pShapeNewton->GetNewtonCollision());
-
+										pShapeNewton->GetNewtonCollision(),
+										nullptr);
 		mpCallback = hplNew( cPhysicsBodyNewtonCallback, () );
 
 		AddCallback(mpCallback);
